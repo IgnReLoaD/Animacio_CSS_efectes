@@ -10,14 +10,26 @@
     <title>Animacions amb CSS - pilota de tennis</title>
 
     <!-- nostre arxiu css -->
-    <link rel="stylesheet" href="styles.css">              
+    <link rel="stylesheet" href="./styles.css">              
     <!-- llibreria animate css  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
-    <h1>Pista de tennis</h1>
+    <header>
+        <h1>Pista de tennis</h1>    
+    </header>
     <main>
-        <div class="pista"><b></b></div>
+        <div class="pista">
+            <!-- caixa pilota, he escollit B de ball (que es la de negreta) pero pot ser DIV normal -->
+            <b></b>
+        </div>
     </main>
+    <footer>
+        <!-- captura teclat PAUSE per veure la deformació que té en un punt determinat -->
+        <p>
+            <button onclick="pausa()">Pausar</button> &nbsp;per veure la deformació en un punt concret (1,5 ample al sostre i doble ample a baix).
+        </p>
+        <script type="text/javascript" src="./events.js"></script> 
+    </footer>
 </body>
 </html>

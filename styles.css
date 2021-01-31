@@ -1,5 +1,6 @@
 body { 
     background: rgb(22, 78, 25); 
+    color: goldenrod;
 }
 
 h1 {
@@ -8,6 +9,11 @@ h1 {
     color: goldenrod;
     align-content: center;
     font-family: arial;
+}
+
+button {
+    position: relative;
+    margin-left: 150px;
 }
 
 /* definim la classe de la Caixa que contindrà el terreny de joc */
@@ -38,7 +44,8 @@ h1 {
     box-shadow: inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04);
   /* efectes */  
     animation: moveX 2.85s linear 0s infinite alternate, moveY 1.05s linear 0.5s infinite alternate;
-    transform: scaleX(-1.5);
+    transition: all 0.5s;
+    /* transform: scaleX(-1.5); */
     /* transform: translate(50px, 50px); */
 }
 
@@ -46,55 +53,48 @@ h1 {
 @keyframes moveX {  
   from { 
       left: 0;
+      transform: scaleY(1.5);
   } to { 
       left: 750px; 
+      transform: scaleY(1.5);      
   }
 
-  0%, 100% {
-    transform: scaleY(1.5);
-  }
-  /* 50% {
+  /* restaurar forma original pilota */
+  5%, 95% {
     transform: scaleY(1.0);
-  }   */
-  /* 100% {
-    transform: scaleY(1.5);
-  } */
-  /* from {
-      left: 750px;
-      transform: scaleX(1.0);
-      transform: scaleY(1.5);
-  } to {
-      left: 0px; 
-      transform: scaleX(1.0);
-      transform: scaleY(1.0);
-  } */
+  }
+
 }
 
 /* keyframes ens ajuda a captar la sensacio de moviment vertical  Y  */
 @keyframes moveY {
   from { 
       top: 0; 
+      transition-duration: 0.1ms;
+      -moz-animation-duration: 0.1ms;
+      -webkit-animation-duration: 0.1ms;
+      animation-duration: 0.1ms;
+      /* animation-delay: -1500ms; */
+      transform: scaleX(1.5);
   } to { 
       top: 550px; 
-  }
-  1% {
-    transform: scaleX(1.5);
-  }
-  /* 50% {
-    transform: scaleX(1.0);
-  } */
-  100% {
-    transform: scaleX(1.5);
+      transition-duration: 100ms;      
+      -moz-animation-duration: 100ms;
+      -webkit-animation-duration: 100ms;
+      animation-duration: 100ms;
+      transform: scaleX(2.0);      
   }
 
-  /* from { 
-    top: 550px; 
-    transform: scaleX(1.5);
-    transform: scaleY(1.0);
-} to { 
-    top: 0; 
-    transform: scaleX(1.0);
-    transform: scaleY(1.0);
-} */
-  /* transform: translate(50px, 50px); */
+  /* restaurar forma original pilota */
+  5%, 95% {
+  transform: scaleX(1.0);
+  -moz-animation-duration: 100ms;
+  -webkit-animation-duration: 100ms;
+  animation-duration: 100ms;  
 }
+
+  /* @if ((95%) (scaleX == 1.5)) {
+    transform: scaleX(1.0);
+  } */
+
+  /* transform: translate(50px, 50px); */
